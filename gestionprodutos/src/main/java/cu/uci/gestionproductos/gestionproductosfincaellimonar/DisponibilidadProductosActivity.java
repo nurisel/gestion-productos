@@ -27,7 +27,7 @@ public class DisponibilidadProductosActivity extends AppCompatActivity {
 
 
     public void load(){
-        listView=(ListView)findViewById(R.id.listServer);
+        listView=(ListView)findViewById(R.id.listProducto);
         dataModels= new ArrayList<>();
         AccessDBProducto db = new AccessDBProducto(getBaseContext());
         List<Producto> list =  db.getAll();

@@ -104,8 +104,8 @@ public class TuplaInfo extends ArrayAdapter<Producto> implements View.OnClickLis
         result.startAnimation(animation);
         lastPosition = position;
 
-        viewHolder.txtNombre.setText(dataModel.getNombre());
-        viewHolder.txtDisponibilidad.setText(dataModel.getDisponibilidad());
+        viewHolder.txtNombre.setText(dataModel.getNombre() + " ($"+dataModel.getPrecio()+")");
+        viewHolder.txtDisponibilidad.setText(String.valueOf(dataModel.getDisponibilidad()));
         viewHolder.venderBtn.setOnClickListener(this);
         viewHolder.venderBtn.setTag(position);
 
