@@ -35,7 +35,8 @@
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="dsdfs"/>
+            android:layout_marginLeft="50dp"
+            android:text="Dinero recaudado: 2324"/>
         <Button
             android:id="@+id/add"
             android:layout_width="40dp"

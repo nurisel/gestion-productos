@@ -92,13 +92,12 @@ public class AccessDBProducto extends SQLiteOpenHelper {
             Importe obj = new Importe(cur.getString(0), cur.getFloat(1));
             list.add(obj);
         }
-        cur.close();
-        sqLiteDatabase.close();
+
         if(list.size()==0){
             ContentValues row = new ContentValues();
             row.put(IMPORTE_ID, "1");
             row.put(IMPORTE_SALDO, 0);
-            sqLiteDatabase.insert(TABLE_NAME, null, row);
+            sqLiteDatabase.insert(TABLE_NAME_IMPORTE, null, row);
         }else{
             Importe im = new Importe(list.get(0).getId(),list.get(0).getSaldo());
             float newSaldo = im.getSaldo()+saldo;
@@ -106,6 +105,8 @@ public class AccessDBProducto extends SQLiteOpenHelper {
             cv.put(IMPORTE_SALDO, newSaldo);
             sqLiteDatabase.update(TABLE_NAME_IMPORTE, cv, IMPORTE_ID + "=" + im.getId(), null);
         }
+        cur.close();
+        sqLiteDatabase.close();
     }
     public float getTotalSaldo() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

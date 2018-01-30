@@ -3,6 +3,7 @@ package cu.uci.gestionproductos.gestionproductosfincaellimonar;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,8 +75,9 @@ public class TuplaInfo extends ArrayAdapter<Producto> implements View.OnClickLis
                 db.updateImporte(dataModel.getPrecio());
                 notifyDataSetChanged();
                 notifyDataSetInvalidated();
-                TuplaInfo.ViewHolder viewHolder = new TuplaInfo.ViewHolder();
-                viewHolder.txtDisponibilidad.setText("OK");
+                Intent intent = new Intent(mContext, DisponibilidadProductosActivity.class);
+                mContext.startActivity(intent);
+
                 break;
 
         }
