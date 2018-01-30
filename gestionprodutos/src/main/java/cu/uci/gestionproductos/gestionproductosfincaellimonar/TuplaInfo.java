@@ -105,13 +105,13 @@ public class TuplaInfo extends ArrayAdapter<Producto> implements View.OnClickLis
         lastPosition = position;
 
         viewHolder.txtNombre.setText(dataModel.getNombre());
-        viewHolder.txtDominio.setText(dataModel.getDominio() + " ("+dataModel.getIp()+")");
-        viewHolder.estadoBtn.setOnClickListener(this);
-        viewHolder.estadoBtn.setTag(position);
+        viewHolder.txtDisponibilidad.setText(dataModel.getDisponibilidad());
+        viewHolder.venderBtn.setOnClickListener(this);
+        viewHolder.venderBtn.setTag(position);
+
         viewHolder.deleteBtn.setOnClickListener(this);
         viewHolder.deleteBtn.setTag(position);
-        boolean isPresente = dataModel.isOnline();
-        viewHolder.estadoBtn.setChecked(isPresente);
+
         return convertView;
     }
 

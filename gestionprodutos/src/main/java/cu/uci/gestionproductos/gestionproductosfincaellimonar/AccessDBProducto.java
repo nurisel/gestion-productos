@@ -88,10 +88,12 @@ public class AccessDBProducto extends SQLiteOpenHelper {
                 disponibilidad = l.get(i).getDisponibilidad();
             }
         }
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(PRODUCTO_DISPONIBILIDAD, (disponibilidad-1));
-        sqLiteDatabase.update(TABLE_NAME, cv, PRODUCTO_ID + "=" + id, null);
-        sqLiteDatabase.close();
+        if(disponibilidad>0) {
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put(PRODUCTO_DISPONIBILIDAD, (disponibilidad - 1));
+            sqLiteDatabase.update(TABLE_NAME, cv, PRODUCTO_ID + "=" + id, null);
+            sqLiteDatabase.close();
+        }
     }
 }
