@@ -71,8 +71,11 @@ public class TuplaInfo extends ArrayAdapter<Producto> implements View.OnClickLis
             case R.id.btnVender:
                 AccessDBProducto db = new AccessDBProducto(mContext);
                 db.vender(dataModel.getId());
+                db.updateImporte(dataModel.getPrecio());
                 notifyDataSetChanged();
                 notifyDataSetInvalidated();
+                TuplaInfo.ViewHolder viewHolder = new TuplaInfo.ViewHolder();
+                viewHolder.txtDisponibilidad.setText("OK");
                 break;
 
         }

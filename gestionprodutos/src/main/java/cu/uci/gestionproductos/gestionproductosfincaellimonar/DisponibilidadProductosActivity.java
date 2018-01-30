@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 public class DisponibilidadProductosActivity extends AppCompatActivity {
     Button add;
     ListView listView;
+    TextView textSaldo;
     ArrayList<Producto> dataModels;
     private static TuplaInfo adapter;
     @Override
@@ -23,10 +25,17 @@ public class DisponibilidadProductosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_disponibilidad_productos);
         add();
         load();
+        textSaldo= (TextView)findViewById(R.id.saldo);
+        AccessDBProducto db = new AccessDBProducto(getBaseContext());
+        float saldo =  db.getTotalSaldo();
+        textSaldo.setText("Dinero recaudado: $"+String.valueOf(saldo));
+
     }
 
 
     public void load(){
+
+
         listView=(ListView)findViewById(R.id.listProducto);
         dataModels= new ArrayList<>();
         AccessDBProducto db = new AccessDBProducto(getBaseContext());
